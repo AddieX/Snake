@@ -1,2 +1,2 @@
-# Simple Snakypy 
-- By Addie, Enjoy!
+# Simple Snake Game By Python PipGames  
+- Addie, Enjoy!
