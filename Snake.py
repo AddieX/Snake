@@ -5,7 +5,6 @@ import pygame, sys, time, random
 
 speed = 15
 
-#windows sizes
 
 frame_size_x = 1380
 frame_size_y= 840
@@ -18,12 +17,12 @@ if(check_errors[1] > 0):
 else:
     print("Game Succesfully initialized")
     
-#initialise game window
+
 
 pygame.display.set_caption("Snake Game")
 game_window = pygame.display.set_mode((frame_size_x, frame_size_y))
 
-# colors
+
 black = pygame.Color(0,0,0)
 white = pygame.Color(255,255,255)
 red = pygame.Color(255,0,0)
@@ -32,7 +31,6 @@ blue = pygame.Color(0,0,255)
 
 
 fps_controller = pygame.time.Clock()
-# one snake square size
 square_size = 60
 
 def init_vars():
@@ -58,8 +56,6 @@ def show_score(choice, color, font, size):
     
     game_window.blit(score_surface, score_rect)
     
-
-#game loop
 
 while True:
     for event in pygame.event.get():
@@ -106,13 +102,11 @@ while True:
     else:
         snake_body.pop()
 
-    # spawn food
     if not food_spawn:
         food_pos = [random.randrange(1,(frame_size_x // square_size)) * square_size, 
             random.randrange(1,(frame_size_y // square_size)) * square_size]
         food_spawn = True
 
-    # GFX
     game_window.fill(black)
     for pos in snake_body:
         pygame.draw.rect(game_window, green, pygame.Rect(
@@ -122,8 +116,6 @@ while True:
     pygame.draw.rect(game_window,red, pygame.Rect(food_pos[0], 
                     food_pos[1], square_size, square_size))
     
-    # game over condiditons
-
     for block in snake_body[1:]:
         if head_pos[0] == block[0] and head_pos[1] == block[1]:
             init_vars()
